@@ -1,0 +1,19 @@
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+  }
+
+  .centered-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button{
+    margin-right: 5px;
+  }
+
+

@@ -1,0 +1,19 @@
+.centered-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  .info{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+  }
+
+  .main-container{
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    flex-direction: column;
+  }

@@ -1,0 +1,33 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center ;
+    padding-bottom: 10;
+  }
+
+.form-button {
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center ;
+}
+
+
+h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center ;
+}
+
+.card{
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+    display:flex;
+    align-items: center;
+    justify-content: center ;
+
+}

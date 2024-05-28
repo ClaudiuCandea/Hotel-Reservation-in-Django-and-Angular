@@ -1,0 +1,10 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+.image{
+  height: 80px;
+}
+.search-bar{
+  height: 20px;
+}

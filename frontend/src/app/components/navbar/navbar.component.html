@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>World Travel</span>
+      <span>
+        <img class ="image" src="assets/logo.png" alt="Logo">
+      </span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button (click)="searchDestination()">
+        <mat-icon>search</mat-icon>
+      </button>
+      <input matInput name="search" placeholder="Seach" [(ngModel)]="searchedLocation">
+      <button mat-button (click)="toHome()">Home</button>
+      <button mat-button (click)="toContacts()">Contacts</button>
+      <button mat-button [matMenuTriggerFor]="destinationMenu" >Destinations</button>
+      <mat-menu #destinationMenu="matMenu">
+        <button mat-menu-item (click)="toDestinations()">Destinations</button>
+        <button mat-menu-item (click)="toOffers()">Offers</button>
+      </mat-menu>
+      <button mat-button (click)="logOut()">LogIn/LogOut</button>
+    </mat-toolbar-row>
+  </mat-toolbar>

@@ -1,0 +1,73 @@
+<app-navbar></app-navbar>
+<div class="main-container">
+    <h1 class="centered-title-container">Destinations</h1>
+    <div class="picker">
+        <mat-form-field>
+            <mat-label>Time period for your travel</mat-label>
+            <mat-date-range-input [rangePicker]="picker">
+              <input matStartDate placeholder="Start date" [(ngModel)]="startDate">
+              <input matEndDate placeholder="End date" [(ngModel)]="endDate">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+    </div>
+    <button class="button2" mat-raised-button color="primary" *ngIf="getRole()=='AGENT'" (click)="navigateToCreate()">Create destination</button>
+    <button class="button2" mat-raised-button color="primary" *ngIf="getRole()=='CLIENT'"  (click)="availableDestinations()">Select time period</button>
+    <mat-card class="card-style" *ngFor="let destination of destinations">
+        <mat-card-header>
+            <h1>{{destination.title}}</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="card-info">
+                <img mat-card-image class="image" src={{destination.imageUrl}} alt="roma">
+                <div>
+                    <h3>Locatie: {{destination.location}}</h3>
+                    <h3>Pret per noapte: {{destination.pricePerNight}}$</h3>
+                    <h3>Locuri liber:{{destination.freeRooms}}</h3>
+                </div>
+            </div>
+            <p>
+                {{destination.description}}
+            </p>
+            <div class="button-group">
+            <button mat-raised-button color="primary" class="button" *ngIf="sessionService.getItem('currUser')!=null && destination.freeRooms!==0" (click)="makeReservation(destination)">Book</button>
+            <button mat-raised-button color="primary" class="button" *ngIf="getRole()=='AGENT'" (click)="deleteDestination(destination.id)">Delete</button>
+            <button mat-raised-button color="primary" class="button" *ngIf="getRole()=='AGENT'" (click)="editDestination(destination)">Edit</button>
+            <button mat-raised-button color="primary" class="button" *ngIf="getRole()=='AGENT'" (click)="viewReservations(destination.id)">View</button>
+            </div>
+    </mat-card-content>
+    </mat-card>
+</div>
+<div class="main-container" id="offers-section">
+    <h1 class="centered-title-container">Offers</h1>
+    <mat-card class="card-style" *ngFor="let destination of offers">
+        <mat-card-header>
+            <h1>{{destination.title}}</h1>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="card-info">
+                <img mat-card-image class="image" src={{destination.imageUrl}} alt="image">
+                <div>
+                    <h3>Locatie: {{destination.location}}</h3>
+                    <h3>Pret per noapte: {{destination.pricePerNight}}$</h3>
+                    <h3>Locuri liber:{{destination.freeRooms}}</h3>
+                    <h3>Discount: {{destination.offer}}%</h3>
+                </div>
+            </div>
+            <p>
+                {{destination.description}}
+            </p>
+            <div class="button-group">
+            <button mat-raised-button class="button" color="primary" *ngIf="sessionService.getItem('currUser')!=null" (click)="makeReservation(destination)">Book</button>
+            <button mat-raised-button color="primary" class="button" *ngIf="getRole()=='AGENT'" (click)="deleteDestination(destination.id)">Delete</button>
+            <button mat-raised-button color="primary" class="button" *ngIf="getRole()=='AGENT'" (click)="editDestination(destination)">Edit</button>
+            <button mat-raised-button color="primary" class="button" *ngIf="getRole()=='AGENT'" (click)="viewReservations(destination.id)">View</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    
+</div>
+
+

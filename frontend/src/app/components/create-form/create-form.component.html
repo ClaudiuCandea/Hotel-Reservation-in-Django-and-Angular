@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<mat-card class="card">
+    <div class="form-component">
+        <h1>Create Destinations</h1>
+        <form #createForm="ngForm" (ngSubmit)="onSubmit(createForm)">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput type="text" name="title" required ngModel>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Location</mat-label>
+                <input matInput type="text" name="location" required ngModel>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Price per Night</mat-label>
+                <input matInput type="number" name="pricePerNight" required ngModel>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Free rooms</mat-label>
+                <input matInput type="number" name="freeRooms" required ngModel>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Description</mat-label>
+                <textarea matInput type="text" name="description" required ngModel></textarea>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Offer</mat-label>
+                <input matInput type="number" name="offer"  [ngModel]="defaultOffer">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Image URL</mat-label>
+                <input matInput type="text" name="imageUrl" required ngModel>
+            </mat-form-field>
+            <button mat-raised-button type="submit" [disabled]="createForm.form.invalid"  color="primary">Create</button>
+        </form> 
+    </div>
+    </mat-card>
